@@ -1,0 +1,399 @@
+@import './colors';
+@import './components';
+@import './animations';
+@import './mixins';
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: 'Raleway', sans-serif;
+	color: $pure-white;
+}
+
+input,
+button,
+textarea {
+	font-family: 'Raleway', sans-serif;
+}
+
+// Header
+
+.header {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+
+	&__arrow {
+		display: none;
+	}
+
+	&__img {
+		grid-column: 1/2;
+		grid-row: 1/2;
+		background-image: url('../img/images/header-mini.jpg');
+		@include images;
+		z-index: 1;
+	}
+
+	&__text {
+		display: grid;
+		grid-column: 1/2;
+		grid-row: 2/3;
+		align-content: center;
+		padding: 6em 4em;
+		background-color: $main-color;
+		text-align: left;
+
+		&-title {
+			font-family: 'Cinzel', serif;
+			margin-bottom: 0.5em;
+			font-size: 4rem;
+			color: $text-color;
+		}
+
+		&-info {
+			font-weight: 200;
+			letter-spacing: 2px;
+			color: $pure-white;
+		}
+	}
+
+	.hamburger {
+		position: fixed;
+		top: 1em;
+		left: 1em;
+		z-index: 100;
+
+		&-inner,
+		&-inner::after,
+		&-inner::before {
+			background-color: $pure-white;
+		}
+	}
+}
+
+// Nav
+
+.nav-desktop {
+	display: none;
+}
+
+.nav-mobile {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 100vh;
+	width: 100%;
+	z-index: 50;
+	background-color: $light-white;
+	transform: translateX(-105%);
+	transition: transform 0.3s;
+
+	&__list {
+		list-style: none;
+
+		&-item {
+			margin: 3em 0;
+
+			a {
+				padding: 1em;
+				text-transform: uppercase;
+				text-decoration: none;
+				color: $black;
+				font-weight: bold;
+				letter-spacing: 1px;
+				font-size: 2rem;
+				transition: color 0.3s;
+
+				&:hover {
+					color: $text-color;
+				}
+			}
+		}
+	}
+}
+
+.nav-active {
+	transform: translateX(0);
+}
+
+// sweets
+
+.sweets {
+	background-color: $secondary-color;
+
+	.card__boxes {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		gap: 1.5em;
+	}
+
+	.card__box {
+		border: 1px solid transparent;
+		padding: 2em;
+		text-align: center;
+		border-radius: 10px;
+		background-color: $main-color;
+		transition: background-color 0.3s, border 0.3s;
+
+		&-icon {
+			width: 3.5em;
+		}
+
+		&-title {
+			font-size: 2.2rem;
+			margin: 0.5em 0;
+		}
+
+		&:hover {
+			background-color: $secondary-color;
+			border: 1px solid $text-color;
+		}
+	}
+}
+
+.buy-smart {
+	background-color: $main-color;
+	position: relative;
+
+	&__boxes {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: repeat(1, 1fr);
+	}
+
+	&__box {
+		margin-bottom: 3em;
+
+		&-img {
+			width: 100%;
+		}
+
+		&-title {
+			font-weight: 200;
+			margin: 0.5em 0;
+			font-size: 2.5rem;
+			letter-spacing: 2px;
+		}
+
+		&-link {
+			text-align: right;
+			margin-top: 0.2em;
+			font-size: 1.8rem;
+
+			&-item {
+				text-decoration: none;
+				font-weight: bold;
+				color: $text-color;
+				transition: color 0.3s;
+
+				&:hover {
+					color: $text-hover;
+				}
+			}
+		}
+
+		&-info {
+			line-height: 1.5;
+			color: $light-white;
+		}
+	}
+}
+
+.offer {
+	background-color: $secondary-color;
+
+	&__boxes {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 2em;
+		text-align: center;
+	}
+
+	&__box {
+		background-color: $main-color;
+		border-radius: 10px;
+		padding: 2em;
+		border: 1px solid transparent;
+		cursor: pointer;
+		transition: background-color 0.3s, border 0.3s;
+
+		&:hover {
+			border: 1px solid $text-color;
+			background-color: $secondary-color;
+		}
+
+		&-img {
+			width: 4rem;
+			margin-bottom: 0.5em;
+		}
+
+		&-title {
+			font-size: 2rem;
+			color: $text-color;
+			margin-bottom: 0.5em;
+		}
+
+		&-detail-title {
+			font-weight: bold;
+			font-size: 1.8rem;
+			margin-top: 1em;
+		}
+
+		&-detail-info {
+			font-size: 1.6rem;
+			margin-top: 0.2em;
+		}
+
+		&-stars {
+			position: relative;
+			margin-top: 3em;
+		}
+
+		.underline {
+			position: absolute;
+			background-color: $pure-white;
+			top: -1.5em;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 30%;
+			height: 1px;
+			border-radius: 10px;
+		}
+	}
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	height: 300px;
+
+	&-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+
+	.gallery-img-five,
+	.gallery-img-six,
+	.gallery-img-seven,
+	.gallery-img-eight {
+		display: none;
+	}
+}
+
+.contact {
+	background-color: $main-color;
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		position: relative;
+	}
+
+	&__form-box {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form__label {
+		margin-bottom: 0.5em;
+		font-size: 2rem;
+	}
+
+	.form__input {
+		margin-bottom: 2em;
+		background: none;
+	}
+
+	.form__textarea {
+		background: none;
+		min-width: 100%;
+		max-width: 30rem;
+		height: 20rem;
+		max-height: 40rem;
+
+	}
+
+	.form__input, .form__textarea {
+		border: 1px solid rgba(255, 255, 255, .3);
+		color: $pure-white;
+		font-size: 1.8rem;
+		padding: 0.3em 0.6em;
+
+		&:focus {
+			outline: none;
+			border: 1px solid $text-color;
+		}
+	}
+
+	.contact-line {
+		position: absolute;
+		height: 80%;
+		width: 3px;
+		background-color: $pure-white;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 10px;
+		display: none;
+	}
+
+	&__right {
+		display: none;
+	}
+}
+
+.contact-map {
+	min-width: 100%;
+	height: 600px;
+}
+
+.footer {
+	text-align: center;
+	padding: 2em 0;
+	background-color: $secondary-color;
+	font-size: 2rem;
+}
+
+.bg-element {
+	position: absolute;
+	opacity: 0.08;
+}
+
+.bg-element-one {
+	bottom: 0;
+	right: -8em;
+	width: 30em;
+	animation: rotate-right 60s infinite linear;
+}
+
+.bg-element-two,
+.bg-element-three,
+.bg-element-four,
+.bg-element-five {
+	display: none;
+}
+
+@import './small';
+@import './medium';
+@import './large';

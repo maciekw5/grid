@@ -1,0 +1,51 @@
+@media(min-width: 576px) {
+
+    .section-title {
+        span {
+            &::before {
+                display: block;
+            }
+        }
+    }
+
+    .buy-smart {
+
+        .bg-element-three, .bg-element-four, .bg-element-five {
+            display: block;
+        }
+
+        .bg-element-three {
+            width: 30rem;
+            top: 15%;
+            left: -2%;
+            animation: rotate-left 60s infinite linear;
+        }
+
+
+        .bg-element-four {
+            width: 40rem;
+            top: 40%;
+            left: 20%;
+            animation: rotate-right 60s infinite linear;
+        }
+
+
+        .bg-element-five {
+            width: 20rem;
+            bottom: 10%;
+            left: 5%;
+            animation: rotate-left 60s infinite linear;
+        }
+
+        &__boxes {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+
+        }
+
+
+        &__box {
+            grid-column: 2/3;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@media (min-width: 768px) {
+	.header {
+		&__img {
+			background-image: url('../img/images/header-big.jpg');
+		}
+	}
+
+	.section-title {
+		font-size: 3.5rem;
+	}
+
+	.sweets {
+		.card__boxes {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(1, 1fr);
+		}
+	}
+
+	.offer {
+		&__box {
+			&-title {
+				font-size: 2.6rem;
+			}
+
+			&-detail-title {
+				font-size: 2.2rem;
+			}
+
+			&-info {
+				font-size: 2rem;
+			}
+		}
+	}
+
+	.gallery {
+		grid-template-columns: repeat(4, 1fr);
+		height: 350px;
+
+		.gallery-img-five,
+		.gallery-img-six,
+		.gallery-img-seven,
+		.gallery-img-eight {
+			display: block;
+		}
+	}
+}
